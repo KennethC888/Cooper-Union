@@ -1,0 +1,76 @@
+#include "rcc_stdlib.h"
+using namespace std;
+
+
+
+
+typedef enum{    //STRUCTS
+DWELL,
+EXEC          
+}sm1_t; 
+
+typedef enum{    //STRUCTS
+FSA,          // Full STEAM AHEAD!
+STOP,        // State 1
+ROTATE,
+}sm2_t; 
+
+
+int main()
+{   
+
+sm1_t state1 = DWELL; //State machine 1
+sm2_t state2 = FSA; //State machine 2 
+int val; 
+
+
+int state = 0; 
+uint32_t current_time, previous_time; //cur, prev
+uint32_t duration = 1000000; // 1 second in US  
+
+    while(true)
+    {  
+        // Get current time into ms
+
+    //Update sensor readings and timing vars
+        current_time = time_us_32; 
+        val = adc_read(); 
+
+        //----------------------------------------------------------------------------------------------------------------------
+       // State 0 (Dwell state)
+        if (state1 == DWELL)
+        {
+            //DO THE THING FOR THE STATE 0
+            // DO NOTHING
+
+            // Transition conditions
+            if (current_time - previous_time >= duration)
+            {
+                    state1 = EXEC; 
+            }
+        }
+
+       // State 1 
+        if (state1 == EXEC)
+        {
+            // DO THE THING FOR STATE 1
+
+            cout << "In state 1\n"; 
+            cyw43_arch_gpio_put(0, !cyw43_arch_gpio_get(0));     
+            // Transition condition
+            if (true)
+            {      
+                state1 = DWELL; 
+                previous_time = current_time; 
+            }
+        }
+
+    }
+
+
+    if (state2 == FSA)             // REQUIRES SENSORS 
+    {
+
+    }
+
+}
