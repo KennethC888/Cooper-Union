@@ -1,0 +1,32 @@
+Question 1: 
+
+DEADLOCK. If we use some_function, then after locking the lock of the shared variable, in the manipulate data
+structure, a SIGINT arrives, then the signal handler functin will occur, but since 
+the lock from that function will TAS (Test and Set), the signal handler will test and 
+set repeatedly, trying to lock the already locked lock; therefore, we will be in a DEADLOCK
+situation. To fix this problem, we should mask the signal immediately before locking the lock 
+in some_function. 
+
+struct shared_data_struct {
+int lock;
+/* Other data structures stuff */
+} *ms;
+/* signal_handler is the disposition of SIGINT */
+void signal_handler(int sig)
+{
+spin_lock(&ms->lock);
+/* Manipulate data structure */
+ms->lock=0;
+}
+int some_function(int a)
+{
+sigset_t oldmask, newmask;
+sigfillset(&newmask);
+sigprocmask(SIG_BLOCK, &newmask, NULL);
+spin_lock(&ms->lock);
+sigprocmask(SIG_SETMASK,&oldmask,NULL); 
+
+/* Manipulate data structure */
+ms->lock=0;
+return something;
+}

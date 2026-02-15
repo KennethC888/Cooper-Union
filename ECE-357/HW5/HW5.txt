@@ -1,0 +1,29 @@
+Question 1: 
+
+a: If there is a PCID, then both processes will run quicker. The PCID allows us to skip flushing to the TLB when 
+switching page tables in the processes. If there is no PCID, every time there is a context switch, the CPU
+will have to flush to the TLB when context switching, which will cost more time. In essence, the PCID allows context switching to be 
+less time-consuming and allow processes in parallel to run quicker than without the PCID. 
+
+b: The kernel will check where the page fault occured, and then checks for MAP_GROWSDOWN or (vm.growsdown),
+then instead of a page fault, the stack will grow and the process will continue (unless if or 
+until the stack region starts to occupy the BSS region space). (grows by another page in lower memory,
+check vm area struct, kernel checks it won't cross another region, then stack expands memory, then expands vm start field to the
+new page frame memory). 
+
+c: When you try to access a feature of the game that we have not previously used, you are trying 
+to page to a file that doesn't exist or work, which will result in a page fault, the kernel will check where the 
+page fault occured, and will see that the file doesn't exist, which will result in a SIGBUS error.  
+
+d: Process 555 and process 6767 have appropriate permissions, so no permission errors here.
+But since both uid are the same, when process 6767 is running, and process 555 is trying to access the same file, there will be a busy error.
+The running program (from process 6767) is still mapped to the file, if process 555 was executing write while process 6767 was occuring,
+there would be a mixture of the original contents of the file and the newer
+contents, which can lead to a corruption of the underlying program. 
+Therefore, the DENYWRITE flag will prevent any kind of write access to the executable file, including truncation. 
+It will fail with the error ETXTBUSY.
+
+NOTE: For Question 2, all unmarked addresses are to be assumed to be 0, also, I realized that 
+one of the pictures is blurry, so I uploaded the picture Not blurry.jpg for a more clear view. Sorry
+for the inconvience! 
+

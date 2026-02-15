@@ -1,0 +1,18 @@
+Question 1 
+a)	The binary executable program ran: /bin/bash (due to the #!) 
+After analyzing the wildcard *n.c (so only files that end in “n.c” such as main.c) will be looked for; only main.c and broken.c will be involved in the process; the list of arguments are as follows:
+/bin/bash
+-vx
+./script.sh
+main.c
+broken.c
+
+b)	Stack Region and thread pid are not the same between threads in a given multi-threaded process. (Stack pointer also is different), also
+using tgid yields different results for threads (tgid is pid in kernal space)
+
+c)	Yes, we can say for sure the output is XY. This is because buf is a global variable, which means that buf array 
+is already allocated with null characters before main is ran, so that when the function(printf) is run, XY will be placed into buf. 
+If buf was a local variable, then we could never say for sure what the correct output will be. 
+
+d)A segmentation fault will occur because the code attempts to use a pointer to place address 0 (the NULL pointer) to have a value of 3. 
+The program would print message 1 but not the second because without the /n, the message remains in stdio buffer and when the NULL pointer error occurs, the buffer is not flushed (so data cannot be written from the buffer memory to its destination) and therefore, will not print.  

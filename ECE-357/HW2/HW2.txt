@@ -1,0 +1,28 @@
+Kenneth Chan OS Homework 2
+
+A filesystem (volume) that does not use journalling (e.g. the ext2fs) is mounted (i.e. it is not the root volume) and under heavy use, with files and directories being created, renamed, and removed at a high rate. There is a sudden failure (e.g. a power failure) which halts the system. After the system reboots, the system’s initialization scripts will want to mount the volume. 
+i)	Before the volume can be mounted, what utility program will be run? What does that utility do, and what sort of issues/problems do we expect it will find and have to correct? Give at least one specific example. 
+fsck will be run. fsck will examine the on-disk filesystem sector by sector. fsck undergoes a recursive descent of the pathname tree, then visits each node, and compares what it sees to the inode table and free block map. If the recursive descent is inconsistent with the inode table or the free block map (a consistency error), fsck prompts before taking action to correct it. For example, let’s say that you create a file before the power failure; when the system reboots, fsck will recursively “walk” down the pathname tree, checking all files and directories recursively, when it notices the new file and compares it to the inode table and sees a discrepancy such as the inode table not having the new file with a numlink, it will prompt the user to resolve this issue. 
+
+ii)	ii) If the volume had previously been mounted in a non-cached manner (-osync option to the mount command), would this avoid these problems? Why/why not?
+It would not avoid these problems as fsck would still run regardless of whether the volume was previously mounted in a non-cached manner or a cached manner. When the system reboots, fsck will still run and notice that there is an inode with the incorrect numlink (either from previously adding or removing links from this inode) and will again prompt the user to resolve the issue. 
+
+1B) A user has a substantial collection of 4K-quality videos and purchases an "8 TB" internal SATA hard disk to hold them. The disk is formatted as a single EXT4 volume. The user follows best security practices and does not download or watch the videos as the "root" user (superuser). Each video file is exactly 2ˆˆ30 (1073741824 bytes) long. Therefore, the user expected that the entire collection of nearly 8,000 videos would fit but in reality the volume ran out of disk space with substantially fewer videos. Give (at least) two reasons for this bitter disappointment.
+Reason 1: The user is not in “superuser mode” so 5-10% of the disk space is reserved for system processes that would be ran by the superuser 
+Reason 2: Each extent descriptor (for contiguous files) in EXT4 requires about 12 bytes of space on the disc and requires an additional 12 bytes for the header. This would decrease the number of videos available to put on the disc. 
+
+1C) A user runs the command mv /A/B/F1 /A/C/F2 where F1 is a fairly large file. This command runs very quickly. Then the user runs mv /A/C/F2 /A/Z/F3 but this takes quite a while to run. Why might that be the case?
+Z is in a different filesystem, so it would need to be mounted to A in order to move F2 to Z. The first command was within the same filesystem, so it runs very fast, but moving a file from one filesystem to another takes longer and would therefore take “quite a while to run.” 
+
+1D) 
+st_size: 4 bytes
+st_nlink: 1
+st_mode: (0644/-rw-r--r--) (also is a file)
+st_atime (access time): 4:55 pm on September 24, 2025
+st_mtime (modify time): 10:30 pm on September 18, 2025
+st_ctime: (change time): 4:30 pm on September 24, 2025
+
+2 
+b) st_size is 4243751, st_blocks is 136 (8 * (4096/512))
+
+Note for question 2, I am using decimal in my drawing. 

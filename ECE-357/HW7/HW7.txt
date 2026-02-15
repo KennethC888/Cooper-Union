@@ -1,0 +1,29 @@
+Homework 7 Kenneth Chan
+
+Question 1: 
+a: 
+cmpl and jae are instructions that check bounds and do unsigned comparisons (cmpl takes argument eax). Without these instructions, 
+an attacker could potentially set eax to a value outside of the range of normal system call numbers; this could lead to 
+the kernel running system calls where it should not be, leading to potential harm to the kernel memory itself
+and security vulnerabilities. (overflow array of pointers of valid table of syscalls). 
+ 
+b: TSS: Furthermore, the TSS only comes into play when the interrupt/exception originates in
+user mode. The special tr register controls the location of the TSS and is generally set
+once. On multi-processor systems, there is a TSS for each processor. When the processor is currently running in User mode, it fetches the TSS. Within the
+TSS is the new value (virtual address) of the stack pointer.
+
+b1: Yes, a new value for %esp is fetched from the TSS, we are running a user-mode program and an interrupt occurs while in user mode, so TSS will have to fetch a new %esp value. 
+
+b2: No, a new value for %esp is not fetched from the TSS we during the handling of the system call, we are in kernel mode, so TSS does not fetch a new %esp value. 
+
+b3: No, a new value for %esp is not fetched from the TSS we are not in user mode while an IPI occurs. When handling an IPI, and a page fault occurs, we are in kernel mode. 
+It is not possible, not a permissible code path. Page fault will never happen in IPI. 
+
+c: If the root filesystem cannot be mounted by the kernel, then the boot process halts, resulting in a KERNEL PANIC! 
+The system is then shut down to protect data; it would print something like "Kernel panic - not syncing: VFS: Unable to mount root fs"
+(Mount root filesystem is one of the first thing that happens when booting up), 
+
+d: TIF_NEED_RESCHED --> #flags already in ecx. 
+TIF_NEED_RESCHED exists because this flag allows the kernel to determine whether the schedule function 
+should run or not, which allows for context switching (stopping a process temporarily to run another one).
+When this flag bit is 1, set, then at work_resched, the kernel scheduler function schedule is called.

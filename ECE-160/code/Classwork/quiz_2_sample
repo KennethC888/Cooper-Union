@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+void british(); 
+void english(); 
+
+
+int main(){
+    printf("Thank you for being a loyal customer. Press 1 for English. Press 2 for British English. Press 3 to repeat. \n");
+
+    char c = getchar(); 
+    while(getchar() != '\n');
+
+
+    while (!(c== '1' || c== '2'))
+    {
+        printf("Thank you for being a loyal customer. Press 1 for English. Press 2 for British English. Press 3 to repeat. \n");
+    
+        c = getchar(); 
+        while(getchar() != '\n'); 
+    }
+
+    if (c =='1')
+    {
+        english(); 
+    }
+    else 
+    {
+        british(); 
+    }
+
+
+
+
+
+    return 0; 
+}
+
+
+void english() 
+{
+    printf("For security purposes, say the first letter of your favorite color. \n");
+    char c = getChar(); 
+
+    while (getChar() !='\n')
+    {
+        while (!(c>= 'A' && c<= 'Z'))
+        {
+            printf("For security purposes, say the first letter of your favorite color. \n");
+        }
+
+        printf("Thank you for comfiring. Unfortunately, our office is no closed. Please call again during normal business hours. Good bye.\n");
+
+    }
+}
+

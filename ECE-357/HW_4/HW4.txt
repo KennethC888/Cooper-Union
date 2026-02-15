@@ -1,0 +1,61 @@
+Question 1:
+a) (Note for method 1, you need to get a pid, then send a quit signal)
+Method 1: use the ulimit command and input "ulimit -f unlimited," which would allow the coredump file to have an unlimited size and 
+contain all contents of relevant memory sections and registers. Then run the program and when it hangs, you can send a kill signal
+and you will get a core dump file. 
+Method 2: Use a debugger such as gdb which will reconstruct the call stack and contents of local and global variables in the core dump file.
+(gdb - p, you can debug and see what is going on)
+Method 3: Use associated key, ctrl + backslash in an interactive session, it will sent a quit signal, and create a coredump file.
+
+b) (you could also attach backspace to the terminal) (stty allows you to change/map keys to mean something else, so like ^H is now a signal)
+In the program, ask the user for input, and as it reads the input from the user,
+if there is a backspace, use stty quit ^H in the code. That way, when the user enters a backspace, it will terminate the program.
+
+c)
+I use the command ls | more, ls is piped to more, and normally, ls would keep writing to the buffer and to more, but the more process exits.
+This is called a "broken pipe" where ls is writing to "nowhere" and a sigpipe would terminate ls after more is gone.
+Let's also say that the signal handler is SIG_IGN (ignore the signal). Normally, the broken pipe issue
+would result in a signal terminating the program so that the user can see that there is a problem.
+However, due to the SIG_IGN, the next wirte command from ls would result in an EPIPE error returning
+-1. The user will see an output that is "partially written."   
+ 
+d)
+Process 1234 is in the sleeping non-interruptible state. In this state, the process cannot be affected by any signals, including
+signal 9 (which usually has plot armor and always succeeds in terminating the program, BUT NOT THIS TIME! Processes in the sleeping 
+non-interruptible state have greater plot armor than signal 9). 
+(Note: can't get umount to work? you can use lsof -a to see which process on system is holding the /umount open and unable to work)
+
+
+e)
+The Interprocessor Interrupt is a hardware interupt that forces control back to the kernel 
+(if for example, a process on CPU A causes CPU B to send a signal to it,
+the kernel will force CPU A to run the interrupt handler).
+Signals allow processes to control other processes and allows a process to respond to external events. Similarly,
+the Interprocessor Interrupt allows the kernel to take control from external events and control the signal delivery process. 
+
+
+
+Question 2:
+a) (Not real-time signals), Thoughout all iterations tested, the parent had the same wait status 8000.
+As the number of iterations increase, the count varies (sometimes increasing and decreasing), but the count is far less
+than the number of iterations. What one would expect is for the number of iterations to be close to the count, but that is 
+not true because when multiple signals are sent to a process, the kernel adds it to a "queue" of pending signals. It is important
+to note that signals 1 through 31 do no queue or "count" if there is already a pending signal of the same type (so if signal 15 is sent
+and another signal 15 is sent, then the second signal sent is removed), so the count will reduce compared to the number of iterations. 
+
+b) The child process never happens! The parent only has a wait status, 8b. Hmmmm... this looks familiar like on my OS midterm...
+8b is 139 in decimal, and 139 wait status is 128 + 11, and 11 is the SIGSEGV. There is a segfault in the fork
+process with the increasing the number of iterations by 10's of thousands. 
+
+c) There is no seg fault this time! Also, parent always had wait status 8000. 
+This is because the sa_flags was set to 0, so there are no flags in the process, which prevents any signal handling from re-entering
+(re-entrantly) the process, which in turn prevents the segfault from occuring. 
+Also, it is important to notice that the count is still far below the number of iterations, reasoning explained in part a. 
+
+d) The count has increased significantly to be much closer to the number of iterations while the parent maintained its 
+wait status of 8000. This is because real-time signals (which are between 32 and 63) do add to the queue under all circumstances. 
+(ulimit -a command will help this make sense)
+
+Answer: re-entrant of the handler, but if no mask is specified, then signal 15 isn't temporarily blocked, if you call too many
+times, you blow up the call stack. 
+Stack automatically grows, but has a limit, 
