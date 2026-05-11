@@ -14,18 +14,10 @@ This system is a distributed, fault-tolerant prime number calculator. It demonst
 
 Run this if you Ctrl + C to end the task: docker compose down
 
-<<<<<<< HEAD
+
 Run one of these commands in another terminal while running this project to see what happens:
 docker compose kill node1
 docker compose kill node2
 docker compose kill node3 
 
 If you kill the master node, then the other two worker nodes will be waiting for tasks and the project will not progress in checking primes. 
-=======
-   Run one of these commands in another terminal while running this project to see what happens:
-   docker compose kill node1
-   docker compose kill node2
-   docker compose kill node3 
-
-   If you kill the master node, then the other two worker nodes will be waiting for tasks and the project will not progress in checking primes. 
->>>>>>> ceedb049d2533019713cfa7172e9fd3ba2c714b3
