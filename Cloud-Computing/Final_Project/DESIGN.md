@@ -1,7 +1,10 @@
 # System Design and Architecture
-NOTE: 
-The system implements a Master-Worker architecture. Master re-election is not implemented, prioritizing worker-node resilience and task-state consistency.
 
+**NOTE:** The system implements a Master-Worker architecture. Master re-election is not implemented, prioritizing worker-node resilience and task-state consistency.
+
+### Architecture Diagram
+
+```mermaid
 graph TD
     subgraph ZooKeeper_Cluster [ZooKeeper Cluster]
         LL["leader_lock (Ephemeral)"]
@@ -40,3 +43,4 @@ graph TD
     classDef compute fill:#f9f0ff,stroke:#cc99ff,stroke-width:2px;
     class LL,W,TP,TR zk;
     class Master,Worker1,Worker2 compute;
+```
