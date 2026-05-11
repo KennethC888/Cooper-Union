@@ -1,0 +1,29 @@
+title: "Courses & Projects by Rob Marano"
+description: The home of Rob's college courses.
+
+exclude:
+  - node_modules
+  - script
+
+sass:
+  style: :compressed
+
+theme: jekyll-theme-primer
+#theme: jekyll-theme-cayman
+
+# kramdown:
+#   input: GFM
+
+#kramdown:
+#  input: GFM
+#  math_engine: mathjax
+
+github:
+  private: false
+  license:
+    name: MIT
+  source:
+    branch: "master"
+    path: "/"
+  repository_url: "https://github.com/robmarano/robmarano.github.io/"
+  

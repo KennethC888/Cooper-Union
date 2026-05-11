@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  upload_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.upload
+    networks:
+      - ece465-net
+
+  status_service:
+    build:
+      context: .
+      dockerfile: Dockerfile.status
+    networks:
+      - ece465-net
+
+  api-gateway:
+    image: nginx:alpine
+    container_name: api_gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - upload_service
+      - status_service
+    networks:
+      - ece465-net
+
+networks:
+  ece465-net:
+    driver: bridge
