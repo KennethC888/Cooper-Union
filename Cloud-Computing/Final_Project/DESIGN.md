@@ -2,17 +2,15 @@
 NOTE: 
 The system implements a Master-Worker architecture. Master re-election is not implemented, prioritizing worker-node resilience and task-state consistency.
 
-## Architecture Diagram
-```mermaid
 graph TD
-    subgraph ZooKeeper Cluster
-        LL[/leader_lock (Ephemeral)/]
-        W[/workers/]
-        TP[/tasks/pending/]
-        TR[/tasks/running/]
+    subgraph ZooKeeper_Cluster [ZooKeeper Cluster]
+        LL["leader_lock (Ephemeral)"]
+        W["workers"]
+        TP["tasks/pending"]
+        TR["tasks/running"]
     end
 
-    subgraph Compute Nodes
+    subgraph Compute_Nodes [Compute Nodes]
         Master[Master Node]
         Worker1[Worker Node 1]
         Worker2[Worker Node 2]
