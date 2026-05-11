@@ -14,7 +14,6 @@ This system is a distributed, fault-tolerant prime number calculator. It demonst
 
 Run this if you Ctrl + C to end the task: docker compose down
 
-
 Run one of these commands in another terminal while running this project to see what happens:
 docker compose kill node1
 docker compose kill node2
