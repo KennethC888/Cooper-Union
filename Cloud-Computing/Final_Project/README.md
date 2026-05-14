@@ -1,6 +1,6 @@
 # ECE 465 Final Project: Distributed Prime Number Cruncher
 
-**Student:** [Your Name]  
+Kenneth Chan
 **Demo Video:** [Insert Unlisted YouTube URL Here]
 
 ---
