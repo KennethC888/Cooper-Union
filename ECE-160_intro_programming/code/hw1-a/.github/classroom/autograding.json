@@ -1,0 +1,134 @@
+{
+  "tests": [
+    {
+      "name": "q1a",
+      "setup": "",
+      "run": "./question1/q1.sh",
+      "input": "",
+      "output": "unix",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q1b",
+      "setup": "",
+      "run": "./question1/q1.sh",
+      "input": "",
+      "output": "blankfile3.txt",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q2",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "It's snowing!!!\r\nIt's snowing!!!\r\nIt's snowing!!!",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q3",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q4",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "3811.5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q5",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "50.264",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q6",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "70.56",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q7",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "938.9",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "q8a",
+      "setup": "gcc question8/q8.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "510049440",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q8b",
+      "setup": "gcc question8/q8.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "108317",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q9a",
+      "setup": "gcc question9/q9.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "87.9",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q9b",
+      "setup": "gcc question9/q9.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "62.8",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q10",
+      "setup": "gcc question10/q10.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "11.4",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    }
+  ]
+}

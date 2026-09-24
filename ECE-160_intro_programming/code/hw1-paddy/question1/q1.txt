@@ -1,0 +1,16 @@
+	#!/bin/bash
+
+	mkdir unix
+	cp unix unix2
+	cd unix2
+	touch blankfile2.txt
+	cp blankfile2.txt 
+	mv blankfile2.txt ./unix blankfile.txt
+	cp blankfile.txt blankfile3.txt
+	cd ..
+	cd ..
+	ls
+	cd unix
+	ls
+ 
+

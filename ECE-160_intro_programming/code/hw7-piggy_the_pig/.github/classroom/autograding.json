@@ -1,0 +1,254 @@
+{
+  "tests": [
+    {
+      "name": "q1amax",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "5\r\n4 2 6 8 7",
+      "output": "8",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1amin",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "5\r\n4 2 6 8 7",
+      "output": "2",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1bmax",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "2\r\n7 5",
+      "output": "7",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1bmin",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "2\r\n7 5",
+      "output": "5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1cmin",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "10\r\n-1 2 3 4 5 6 7 8 9 10",
+      "output": "-1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1dmax",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "1\r\n777",
+      "output": "777",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q1dmin",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "1\r\n777",
+      "output": "777",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q2a",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out < question2/text.txt",
+      "input": "",
+      "output": "Q\r\nR\r\nS\r\nT\r\nU\r\nV\r\nW\r\nX\r\nY\r\nZ",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q2b",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out -5 < question2/text.txt",
+      "input": "",
+      "output": "V\r\nW\r\nX\r\nY\r\nZ",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q2c",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out -15 < question2/text.txt",
+      "input": "",
+      "output": "L\r\nM\r\nN\r\nO\r\nP\r\nQ\r\nR\r\nS\r\nT\r\nU\r\nV\r\nW\r\nX\r\nY\r\nZ",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q2d",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out -1 < question2/text.txt",
+      "input": "",
+      "output": "Z",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2e",
+      "setup": "gcc question2/q2.c",
+      "run": "./a.out -20 < question2/text.txt",
+      "input": "",
+      "output": "G\r\nH\r\nI\r\nJ\r\nK\r\nL\r\nM\r\nN\r\nO\r\nP\r\nQ\r\nR\r\nS\r\nT\r\nU\r\nV\r\nW\r\nX\r\nY\r\nZ",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3a",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out 1 1 1",
+      "input": "",
+      "output": "31",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q3b",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out 10 10 10",
+      "input": "",
+      "output": "310",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q3c",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out 777 777 777",
+      "input": "",
+      "output": "24087",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q3d",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out -5 -4 -3",
+      "input": "",
+      "output": "-148",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3e",
+      "setup": "gcc question3/q3.c",
+      "run": "./a.out -1 1 -1",
+      "input": "",
+      "output": "-21",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4",
+      "setup": "gcc -lm question4/q4.c",
+      "run": "./a.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 7
+    },
+    {
+      "name": "q5a",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out < question5/test1.c",
+      "input": "",
+      "output": "   1 auto\r\n   2 break\r\n   1 case\r\n   9 char\r\n   1 const\r\n   1 continue\r\n   1 default\r\n   3 else\r\n   3 for\r\n   9 if\r\n  16 int\r\n   6 return\r\n   2 sizeof\r\n   9 struct\r\n   1 unsigned\r\n   7 void\r\n   1 volatile\r\n   4 while",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q5b",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out < question5/test2.c",
+      "input": "",
+      "output": "   1 break\r\n  14 char\r\n   4 else\r\n   3 for\r\n  10 if\r\n  12 int\r\n   7 return\r\n   1 sizeof\r\n  14 struct\r\n   8 void\r\n   2 while",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "q6a",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out < question6/test1.txt",
+      "input": "",
+      "output": "boo\r\nhi\r\napple\r\ncooper",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q6b",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out < question6/test2.txt",
+      "input": "",
+      "output": "j\r\nz\r\nl\r\ng\r\ni\r\nf\r\nd\r\nc\r\nb\r\nx",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "q7a",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "3\r\n1 2 5\r\n3\r\n2 5 6",
+      "output": "2 5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q7b",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "10\r\n1 2 3 4 5 6 7 8 9 111\r\n10\r\n111 5 7 9 2 4 12 13 14 15",
+      "output": "111 5 7 9 2 4",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "q1cmax",
+      "setup": "gcc question1/q1.c",
+      "run": "./a.out",
+      "input": "10\r\n-1 2 3 4 5 6 7 8 9 10",
+      "output": "10",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}

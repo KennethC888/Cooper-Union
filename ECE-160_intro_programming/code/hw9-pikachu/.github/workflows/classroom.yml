@@ -1,0 +1,153 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: q1a
+      id: q1a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1a
+        command: python3 question1/q1.py
+        input: ''
+        expected-output: 0 10 20 30 40 50 60 70 80 90 100
+        comparison-method: contains
+        timeout: 1
+        max-score: 6
+    - name: q1b
+      id: q1b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1b
+        command: python3 question1/q1.py
+        input: ''
+        expected-output: 0 20 40 60 80 100
+        comparison-method: contains
+        timeout: 1
+        max-score: 7
+    - name: q2
+      id: q2
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2
+        command: python3 question2/q2.py
+        input: ''
+        expected-output: 100 90 80 60 40 30 20 10 0 -10 -20 -30 -40 -60 -80 -90 -100
+        comparison-method: contains
+        timeout: 1
+        max-score: 12
+    - name: q3a
+      id: q3a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3a
+        command: python3 question3/q3.py
+        input: '5'
+        expected-output: F
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q3b
+      id: q3b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3b
+        command: python3 question3/q3.py
+        input: '70'
+        expected-output: C
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q3c
+      id: q3c
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3c
+        command: python3 question3/q3.py
+        input: '95'
+        expected-output: A
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q3d
+      id: q3d
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3d
+        command: python3 question3/q3.py
+        input: '1000'
+        expected-output: Invalid input!
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q3e
+      id: q3e
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3e
+        command: python3 question3/q3.py
+        input: "-500"
+        expected-output: Invalid input!
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q4a
+      id: q4a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q4a
+        command: python3 question4/q4.py
+        input: '5'
+        expected-output: 'False'
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: q4b
+      id: q4b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q4b
+        command: python3 question4/q4.py
+        input: '70'
+        expected-output: 'True'
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: q4c
+      id: q4c
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q4c
+        command: python3 question4/q4.py
+        input: '0'
+        expected-output: 'True'
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        Q1A_RESULTS: "${{steps.q1a.outputs.result}}"
+        Q1B_RESULTS: "${{steps.q1b.outputs.result}}"
+        Q2_RESULTS: "${{steps.q2.outputs.result}}"
+        Q3A_RESULTS: "${{steps.q3a.outputs.result}}"
+        Q3B_RESULTS: "${{steps.q3b.outputs.result}}"
+        Q3C_RESULTS: "${{steps.q3c.outputs.result}}"
+        Q3D_RESULTS: "${{steps.q3d.outputs.result}}"
+        Q3E_RESULTS: "${{steps.q3e.outputs.result}}"
+        Q4A_RESULTS: "${{steps.q4a.outputs.result}}"
+        Q4B_RESULTS: "${{steps.q4b.outputs.result}}"
+        Q4C_RESULTS: "${{steps.q4c.outputs.result}}"
+      with:
+        runners: q1a,q1b,q2,q3a,q3b,q3c,q3d,q3e,q4a,q4b,q4c

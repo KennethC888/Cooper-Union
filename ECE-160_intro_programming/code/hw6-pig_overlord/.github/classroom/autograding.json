@@ -1,0 +1,294 @@
+{
+  "tests": [
+    {
+      "name": "q1a",
+      "setup": "gcc question1/q1.c -lm",
+      "run": "./a.out",
+      "input": "1.2345",
+      "output": "1.2345",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q1b",
+      "setup": "gcc question1/q1.c -lm",
+      "run": "./a.out",
+      "input": "     5.6789",
+      "output": "5.6789",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q1c",
+      "setup": "gcc question1/q1.c -lm",
+      "run": "./a.out",
+      "input": "    -5.4321",
+      "output": "-5.4321",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q2a",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "abc\r\ndef",
+      "output": "abcdef",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2b",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "ECE\r\n160",
+      "output": "ECE160",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2c",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "Coo\r\nper",
+      "output": "Cooper",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q3a",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "abc\r\nabc",
+      "output": "1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3b",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "CooperUnion\r\nUnion",
+      "output": "1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3c",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "Cooper\r\nUnion",
+      "output": "0",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "q4a",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "ABCDEF\r\nDEF\r\n3",
+      "output": "DEFDEF",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q4b",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "ABC\r\nCCC\r\n2",
+      "output": "CCC",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q4c",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "CS102\r\nSC102\r\n2",
+      "output": "SC102",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q4d",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "ABCDEF\r\nFEDCBA\r\n3",
+      "output": "FEDDEF",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4e",
+      "setup": "gcc question4/q4.c",
+      "run": "./a.out",
+      "input": "ABCDEF\r\nABC\r\n0",
+      "output": "ABCDEF",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5a",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "2020 1 5",
+      "output": "5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q5b",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "2020 10 31",
+      "output": "305",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q5c",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "2020 -1 -1",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q5d",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "2020 2 30",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5e",
+      "setup": "gcc question5/q5.c",
+      "run": "./a.out",
+      "input": "2021 2 29",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q6a",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "2020 5",
+      "output": "1/5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q6b",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "2020 305",
+      "output": "10/31",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q6c",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "2020 500",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q6d",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "2021 366",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q6e",
+      "setup": "gcc question6/q6.c",
+      "run": "./a.out",
+      "input": "2020 -1",
+      "output": "Invalid input.",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q7a",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "ABC\r\nABC\r\n2",
+      "output": "0",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q7b",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "ABC\r\nBCD\r\n1",
+      "output": "-1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "q7c",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "BCD\r\nABC\r\n1",
+      "output": "1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q7d",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "ABCDEF\r\nABCDEE\r\n5",
+      "output": "0",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q7e",
+      "setup": "gcc question7/q7.c",
+      "run": "./a.out",
+      "input": "ABCDEF\r\nABCDEA\r\n6",
+      "output": "5",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    }
+  ]
+}

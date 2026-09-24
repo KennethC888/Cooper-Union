@@ -1,0 +1,214 @@
+{
+  "tests": [
+    {
+      "name": "q1",
+      "setup": "gcc question1/q1.c -lm",
+      "run": "./a.out",
+      "input": "",
+      "output": "Functions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!\r\nFunctions are fun!!!",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "q2a",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "aaaaa",
+      "output": "699050",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2b",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "abcdef",
+      "output": "11259375",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2c",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "12345",
+      "output": "74565",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2d",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "0XA10CD",
+      "output": "659661",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q2e",
+      "setup": "gcc question2/q2.c -lm",
+      "run": "./a.out",
+      "input": "AFBC102",
+      "output": "184271106",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3a",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "abc\r\na",
+      "output": "bc",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3b",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "Hello\r\no",
+      "output": "Hell",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3c",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "12345\r\n135",
+      "output": "24",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3d",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "September\r\nember",
+      "output": "Spt",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q3e",
+      "setup": "gcc question3/q3.c -lm",
+      "run": "./a.out",
+      "input": "ECE160C\r\n160",
+      "output": "ECEC",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4a",
+      "setup": "gcc question4/q4.c -lm",
+      "run": "./a.out",
+      "input": "10\r\n16",
+      "output": "A",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4b",
+      "setup": "gcc question4/q4.c -lm",
+      "run": "./a.out",
+      "input": "777\r\n10",
+      "output": "777",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4c",
+      "setup": "gcc question4/q4.c -lm",
+      "run": "./a.out",
+      "input": "75863\r\n8",
+      "output": "224127",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4d",
+      "setup": "gcc question4/q4.c -lm",
+      "run": "./a.out",
+      "input": "154786\r\n15",
+      "output": "30CE1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q4e",
+      "setup": "gcc question4/q4.c -lm",
+      "run": "./a.out",
+      "input": "156489215873\r\n30",
+      "output": "2GT3OKH",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5a",
+      "setup": "gcc question5/q5.c -lm",
+      "run": "./a.out",
+      "input": "123\r\n10",
+      "output": "       123",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5b",
+      "setup": "gcc question5/q5.c -lm",
+      "run": "./a.out",
+      "input": "123456\r\n1",
+      "output": "123456",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5c",
+      "setup": "gcc question5/q5.c -lm",
+      "run": "./a.out",
+      "input": "12345\r\n5",
+      "output": "12345",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5d",
+      "setup": "gcc question5/q5.c -lm",
+      "run": "./a.out",
+      "input": "777\r\n7",
+      "output": "    777",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "q5e",
+      "setup": "gcc question5/q5.c -lm",
+      "run": "./a.out",
+      "input": "1\r\n25",
+      "output": "                        1",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    }
+  ]
+}

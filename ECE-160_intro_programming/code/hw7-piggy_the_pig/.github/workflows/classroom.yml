@@ -1,0 +1,309 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: q1amax
+      id: q1amax
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1amax
+        command: gcc question1/q1.c; ./a.out
+        input: "5\r\n4 2 6 8 7"
+        expected-output: '8'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1amin
+      id: q1amin
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1amin
+        command: "./a.out"
+        input: "5\r\n4 2 6 8 7"
+        expected-output: '2'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1bmax
+      id: q1bmax
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1bmax
+        command: "./a.out"
+        input: "2\r\n7 5"
+        expected-output: '7'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1bmin
+      id: q1bmin
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1bmin
+        command: "./a.out"
+        input: "2\r\n7 5"
+        expected-output: '5'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1cmin
+      id: q1cmin
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1cmin
+        command: "./a.out"
+        input: "10\r\n-1 2 3 4 5 6 7 8 9 10"
+        expected-output: "-1"
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1dmax
+      id: q1dmax
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1dmax
+        command: "./a.out"
+        input: "1\r\n777"
+        expected-output: '777'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q1dmin
+      id: q1dmin
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1dmin
+        command: "./a.out"
+        input: "1\r\n777"
+        expected-output: '777'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q2a
+      id: q2a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2a
+        command: gcc question2/q2.c; ./a.out < question2/text.txt
+        input: ''
+        expected-output: Q
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q2b
+      id: q2b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2b
+        command: "./a.out -5 < question2/text.txt"
+        input: ''
+        expected-output: V
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q2c
+      id: q2c
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2c
+        command: "./a.out -15 < question2/text.txt"
+        input: ''
+        expected-output: L
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q2d
+      id: q2d
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2d
+        command: "./a.out -1 < question2/text.txt"
+        input: ''
+        expected-output: Z
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q2e
+      id: q2e
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q2e
+        command: "./a.out -20 < question2/text.txt"
+        input: ''
+        expected-output: G
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q3a
+      id: q3a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3a
+        command: gcc question3/q3.c; ./a.out 1 1 1
+        input: ''
+        expected-output: '31'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q3b
+      id: q3b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3b
+        command: "./a.out 10 10 10"
+        input: ''
+        expected-output: '310'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q3c
+      id: q3c
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3c
+        command: "./a.out 777 777 777"
+        input: ''
+        expected-output: '24087'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: q3d
+      id: q3d
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3d
+        command: "./a.out -5 -4 -3"
+        input: ''
+        expected-output: "-148"
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q3e
+      id: q3e
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q3e
+        command: "./a.out -1 1 -1"
+        input: ''
+        expected-output: "-21"
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: q5a
+      id: q5a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q5a
+        command: gcc question5/q5.c; ./a.out < question5/test1.c
+        input: ''
+        expected-output: int
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q5b
+      id: q5b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q5b
+        command: "./a.out < question5/test2.c"
+        input: ''
+        expected-output: if
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: q6a
+      id: q6a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q6a
+        command: gcc question6/q6.c; ./a.out < question6/test1.txt
+        input: ''
+        expected-output: boo
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q6b
+      id: q6b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q6b
+        command: "./a.out < question6/test2.txt"
+        input: ''
+        expected-output: j
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: q7a
+      id: q7a
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q7a
+        command: gcc question7/q7.c; ./a.out
+        input: "3\r\n1 2 5\r\n3\r\n2 5 6"
+        expected-output: 2 5
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: q7b
+      id: q7b
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q7b
+        command: "./a.out"
+        input: "10\r\n1 2 3 4 5 6 7 8 9 111\r\n10\r\n111 5 7 9 2 4 12 13 14 15"
+        expected-output: 111 5 7 9 2 4
+        comparison-method: contains
+        timeout: 1
+        max-score: 4
+    - name: q1cmax
+      id: q1cmax
+      uses: education/autograding-io-grader@v1
+      with:
+        test-name: q1cmax
+        command: gcc question1/q1.c; ./a.out
+        input: "10\r\n-1 2 3 4 5 6 7 8 9 10"
+        expected-output: '10'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        Q1AMAX_RESULTS: "${{steps.q1amax.outputs.result}}"
+        Q1AMIN_RESULTS: "${{steps.q1amin.outputs.result}}"
+        Q1BMAX_RESULTS: "${{steps.q1bmax.outputs.result}}"
+        Q1BMIN_RESULTS: "${{steps.q1bmin.outputs.result}}"
+        Q1CMIN_RESULTS: "${{steps.q1cmin.outputs.result}}"
+        Q1DMAX_RESULTS: "${{steps.q1dmax.outputs.result}}"
+        Q1DMIN_RESULTS: "${{steps.q1dmin.outputs.result}}"
+        Q2A_RESULTS: "${{steps.q2a.outputs.result}}"
+        Q2B_RESULTS: "${{steps.q2b.outputs.result}}"
+        Q2C_RESULTS: "${{steps.q2c.outputs.result}}"
+        Q2D_RESULTS: "${{steps.q2d.outputs.result}}"
+        Q2E_RESULTS: "${{steps.q2e.outputs.result}}"
+        Q3A_RESULTS: "${{steps.q3a.outputs.result}}"
+        Q3B_RESULTS: "${{steps.q3b.outputs.result}}"
+        Q3C_RESULTS: "${{steps.q3c.outputs.result}}"
+        Q3D_RESULTS: "${{steps.q3d.outputs.result}}"
+        Q3E_RESULTS: "${{steps.q3e.outputs.result}}"
+        Q5A_RESULTS: "${{steps.q5a.outputs.result}}"
+        Q5B_RESULTS: "${{steps.q5b.outputs.result}}"
+        Q6A_RESULTS: "${{steps.q6a.outputs.result}}"
+        Q6B_RESULTS: "${{steps.q6b.outputs.result}}"
+        Q7A_RESULTS: "${{steps.q7a.outputs.result}}"
+        Q7B_RESULTS: "${{steps.q7b.outputs.result}}"
+        Q1CMAX_RESULTS: "${{steps.q1cmax.outputs.result}}"
+      with:
+        runners: q1amax,q1amin,q1bmax,q1bmin,q1cmin,q1dmax,q1dmin,q2a,q2b,q2c,q2d,q2e,q3a,q3b,q3c,q3d,q3e,q5a,q5b,q6a,q6b,q7a,q7b,q1cmax
